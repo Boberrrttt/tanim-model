@@ -13,11 +13,22 @@ class PredictRequest(BaseModel):
 
 app = FastAPI(title="ML Inference API")
 
-with open("model.pkl", "rb") as f:
+import os
+
+MODEL_DIR = "model_artifacts"
+
+with open(os.path.join(MODEL_DIR, "lgbm_crop_model.pkl"), "rb") as f:
     model = pickle.load(f)
 
-with open("label.pkl", "rb") as f:
+with open(os.path.join(MODEL_DIR, "label_encoder.pkl"), "rb") as f:
     label_encoder = pickle.load(f)
+
+try:
+    with open(os.path.join(MODEL_DIR, "scaler.pkl"), "rb") as f:
+        scaler = pickle.load(f)
+except FileNotFoundError:
+    scaler = None
+
 
 @app.get("/")
 def health():
@@ -32,21 +43,25 @@ def predict(request: PredictRequest):
             return {"status": "error", "message": "Model not available"}
         
         soil_sample = pd.DataFrame([{
-            "N": features[0],
-            "P": features[1], 
-            "K": features[2],
-            "ph": features[3],
-            "temperature": features[4],
-            "humidity": features[5]
+            "OM_pct": features[0],
+            "P_ppm": features[1], 
+            "K_ppm": features[2],
+            "Soil_pH": features[3]
         }])
         
-        prediction = model.predict(soil_sample)[0]
+        if scaler is not None:
+            # We assume it expects a DataFrame or 2D array and we pass it
+            input_data = scaler.transform(soil_sample)
+        else:
+            input_data = soil_sample
+            
+        prediction = model.predict(input_data)[0]
         
         if hasattr(prediction, 'item'):
             prediction = prediction.item()
         
         if hasattr(model, 'predict_proba'):
-            probs = model.predict_proba(soil_sample)[0]
+            probs = model.predict_proba(input_data)[0]
             
             if label_encoder is not None:
                 crops = label_encoder.classes_

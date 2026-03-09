@@ -1,0 +1,47 @@
+{
+  "features": [
+    "OM_pct",
+    "P_ppm",
+    "K_ppm",
+    "Soil_pH"
+  ],
+  "feature_labels": [
+    "Organic Matter (%)",
+    "Phosphorus (ppm)",
+    "Potassium (ppm)",
+    "Soil pH"
+  ],
+  "class_names": [
+    "Adlai",
+    "Ampalaya",
+    "Beans (Soybean)",
+    "Beans (String Beans)",
+    "Bell Pepper",
+    "Broccoli",
+    "Cabbage",
+    "Camote (Sweet Potato)",
+    "Cassava",
+    "Chili Pepper",
+    "Corn",
+    "Cucumber",
+    "Eggplant",
+    "Mongo (Mungbean)",
+    "Okra",
+    "Onion",
+    "Peanut",
+    "Potato",
+    "Radish",
+    "Sitao",
+    "Sorghum",
+    "Squash",
+    "Sugarcane",
+    "Sweet Pepper",
+    "Tobacco",
+    "Tomato"
+  ],
+  "n_classes": 26,
+  "best_iteration": 1500,
+  "test_top1_acc": 0.5622,
+  "test_top3_acc": 0.8621,
+  "excluded": "trees, fruit crops, rice, grasses, ornamentals"
+}
