@@ -1,5 +1,6 @@
 from fastapi import FastAPI
 import pickle
+import joblib
 import numpy as np
 import pandas as pd
 from typing import List, Any
@@ -17,8 +18,7 @@ import os
 
 MODEL_DIR = "model_artifacts"
 
-with open(os.path.join(MODEL_DIR, "lgbm_crop_model.pkl"), "rb") as f:
-    model = pickle.load(f)
+model = joblib.load(os.path.join(MODEL_DIR, "lgbm_crop_model.pkl"))
 
 with open(os.path.join(MODEL_DIR, "label_encoder.pkl"), "rb") as f:
     label_encoder = pickle.load(f)
