@@ -20,12 +20,10 @@ MODEL_DIR = "model_artifacts"
 
 model = joblib.load(os.path.join(MODEL_DIR, "lgbm_crop_model.pkl"))
 
-with open(os.path.join(MODEL_DIR, "label_encoder.pkl"), "rb") as f:
-    label_encoder = pickle.load(f)
+label_encoder = joblib.load(os.path.join(MODEL_DIR, "label_encoder.pkl"))
 
 try:
-    with open(os.path.join(MODEL_DIR, "scaler.pkl"), "rb") as f:
-        scaler = pickle.load(f)
+    scaler = joblib.load(os.path.join(MODEL_DIR, "scaler.pkl"))
 except FileNotFoundError:
     scaler = None
 
