@@ -7,6 +7,7 @@ import pandas as pd
 import urllib.error
 import urllib.request
 import warnings
+from datetime import datetime, timezone
 from typing import Any, Dict, List, Optional
 from pydantic import BaseModel
 
@@ -43,20 +44,27 @@ def _soil_health_payload(features: List[float], farm_id: str, classification: st
         "moisture": float(features[5]) if len(features) > 5 else 0.0,
         "farm_id": farm_id,
         "classification": classification,
+        "created_at": datetime.now(timezone.utc).isoformat(),
     }
 
 
 def _sync_soil_health_test_to_api(features: List[float], farm_id: str, classification: str) -> None:
     url = _soil_health_test_url()
-    body = json.dumps(_soil_health_payload(features, farm_id, classification)).encode("utf-8")
-    req = urllib.request.Request(
-        url,
-        data=body,
-        headers={"Content-Type": "application/json"},
-        method="POST",
-    )
+    payload = _soil_health_payload(features, farm_id, classification)
+    body = json.dumps(payload).encode("utf-8")
+    headers = {"Content-Type": "application/json"}
+    put_req = urllib.request.Request(url, data=body, headers=headers, method="PUT")
     try:
-        with urllib.request.urlopen(req, timeout=15) as resp:
+        try:
+            with urllib.request.urlopen(put_req, timeout=15) as resp:
+                resp.read()
+            return
+        except urllib.error.HTTPError as e:
+            if e.code != 404:
+                print(f"Soil health test API sync failed ({url}) PUT: {e}")
+                return
+        post_req = urllib.request.Request(url, data=body, headers=headers, method="POST")
+        with urllib.request.urlopen(post_req, timeout=15) as resp:
             resp.read()
     except (urllib.error.URLError, urllib.error.HTTPError, TimeoutError, OSError) as e:
         print(f"Soil health test API sync failed ({url}): {e}")
