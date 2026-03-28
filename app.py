@@ -35,6 +35,7 @@ def health():
 @app.post("/predict")
 def predict(request: PredictRequest):
     try:
+        print(f"Predict request received: {request.model_dump()}")
         features = request.features
         
         if model is None:
@@ -100,7 +101,11 @@ def predict(request: PredictRequest):
                 prediction_name = label_encoder.inverse_transform([prediction])[0]
             else:
                 prediction_name = str(prediction)
-                
+
+            prediction_str = str(prediction_name)
+            
+            _sync_soil_health_test_to_api(features, farm_id, prediction_str)
+
             return {
                 "status": "success",
                 "message": "Prediction successful",
