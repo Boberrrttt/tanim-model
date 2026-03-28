@@ -155,13 +155,7 @@ def predict(request: PredictRequest):
                 prediction_name = str(prediction)
 
             prediction_str = str(prediction_name)
-<<<<<<< HEAD
-            
             _sync_soil_health_test_to_api(features, farm_id, prediction_str)
-=======
-            if farm_id:
-                _sync_soil_health_test_to_api(features, farm_id, prediction_str)
->>>>>>> f25bf0476500eb849d02606305e73e7fe43ebc4c
 
             return {
                 "status": "success",
