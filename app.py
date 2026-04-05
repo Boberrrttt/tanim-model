@@ -48,9 +48,15 @@ def _crop_recommendation_url() -> str:
     return f"{_tanim_api_origin()}/api/v1/crop-recommendations/"
 
 
+def _farm_location_patch_url() -> str:
+    return f"{_tanim_api_origin()}/api/v1/farm/location"
+
+
 class PredictRequest(BaseModel):
     features: List[float]
     farm_id: Optional[str] = None
+    lat: Optional[float] = None
+    lng: Optional[float] = None
 
 
 class FertilizerPredictRequest(BaseModel):
@@ -108,6 +114,24 @@ def _sync_soil_health_test_to_api(features: List[float], farm_id: str) -> None:
             print(f"Soil health test API sync failed ({url}): {e}")
     except (urllib.error.URLError, urllib.error.HTTPError, TimeoutError, OSError) as e:
         print(f"Soil health test API sync failed ({url}): {e}")
+
+
+def _sync_farm_coordinates_to_api(farm_id: str, latitude: float, longitude: float) -> None:
+    url = _farm_location_patch_url()
+    body = json.dumps(
+        {"farm_id": farm_id, "latitude": latitude, "longitude": longitude}
+    ).encode("utf-8")
+    req = urllib.request.Request(
+        url,
+        data=body,
+        headers={"Content-Type": "application/json"},
+        method="PATCH",
+    )
+    try:
+        with urllib.request.urlopen(req, timeout=15) as resp:
+            resp.read()
+    except (urllib.error.URLError, urllib.error.HTTPError, TimeoutError, OSError) as e:
+        print(f"Farm location API sync failed ({url}): {e}")
 
 
 def _sync_crop_recommendation_to_api(
@@ -207,6 +231,8 @@ def predict(request: PredictRequest):
         print(f"Predict request received: {request.model_dump()}")
         features = request.features
         farm_id = request.farm_id
+        lat = request.lat
+        lng = request.lng
 
         if model is None:
             return {"status": "error", "message": "Model not available"}
@@ -260,6 +286,8 @@ def predict(request: PredictRequest):
 
             prediction_str = str(prediction_name)
             if farm_id:
+                if lat is not None and lng is not None:
+                    _sync_farm_coordinates_to_api(farm_id, float(lat), float(lng))
                 _sync_soil_health_test_to_api(features, farm_id)
                 probabilities_payload = [
                     {"crop_class": str(crop), "probability": float(prob)}
@@ -286,6 +314,8 @@ def predict(request: PredictRequest):
 
             prediction_str = str(prediction_name)
             if farm_id:
+                if lat is not None and lng is not None:
+                    _sync_farm_coordinates_to_api(farm_id, float(lat), float(lng))
                 _sync_soil_health_test_to_api(features, farm_id)
 
             return {
