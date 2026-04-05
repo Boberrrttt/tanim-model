@@ -220,6 +220,30 @@ def _engineer_fert_features(df: pd.DataFrame) -> pd.DataFrame:
     return df
 
 
+def classify_npk(nitrogen: float, phosphorus: float, potassium: float) -> Dict[str, str]:
+    """Classify quantitative NPK values into qualitative levels (Low/Medium/High).
+
+    Thresholds (single-crop trial):
+        Nitrogen:   Low >= 60,  Medium >= 50,  High < 50
+        Phosphorus: Low >= 60,  Medium >= 35,  High < 35
+        Potassium:  Low >= 90,  Medium >= 60,  High < 60
+    """
+
+    def _level(value: float, low_thresh: float, med_thresh: float) -> str:
+        if value >= low_thresh:
+            return "Low"
+        elif value >= med_thresh:
+            return "Medium"
+        else:
+            return "High"
+
+    return {
+        "nitrogen": _level(nitrogen, 60, 50),
+        "phosphorus": _level(phosphorus, 60, 35),
+        "potassium": _level(potassium, 90, 60),
+    }
+
+
 @app.get("/")
 def health():
     return {"status": "ok"}
@@ -295,11 +319,18 @@ def predict(request: PredictRequest):
                 ]
                 _sync_crop_recommendation_to_api(farm_id, probabilities_payload)
 
+            npk_levels = classify_npk(
+                nitrogen=features[0],
+                phosphorus=features[1],
+                potassium=features[2],
+            )
+
             return {
                 "status": "success",
                 "message": "Prediction successful",
                 "data": {
                     "prediction": prediction_str,
+                    "npk_levels": npk_levels,
                     "probabilities": [
                         {"crop_class": crop, "probability": float(prob)}
                         for crop, prob in top_3
@@ -318,10 +349,19 @@ def predict(request: PredictRequest):
                     _sync_farm_coordinates_to_api(farm_id, float(lat), float(lng))
                 _sync_soil_health_test_to_api(features, farm_id)
 
+            npk_levels = classify_npk(
+                nitrogen=features[0],
+                phosphorus=features[1],
+                potassium=features[2],
+            )
+
             return {
                 "status": "success",
                 "message": "Prediction successful",
-                "data": {"prediction": prediction_str},
+                "data": {
+                    "prediction": prediction_str,
+                    "npk_levels": npk_levels,
+                },
             }
 
     except Exception as e:
