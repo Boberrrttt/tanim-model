@@ -11,9 +11,6 @@ from services.crop_service import CropService
 from services.fertilizer_service import FertilizerService
 from services.api_sync import APISyncService
 
-# ---------------------------------------------------------------------------
-# Initialize services
-# ---------------------------------------------------------------------------
 app = FastAPI(title="ML Inference API")
 
 crop_service = CropService()
@@ -21,11 +18,7 @@ fertilizer_service = FertilizerService()
 api_sync = APISyncService()
 
 
-# ---------------------------------------------------------------------------
 # Endpoints
-# ---------------------------------------------------------------------------
-
-
 @app.get("/")
 def health():
     return {"status": "ok"}

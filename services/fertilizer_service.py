@@ -60,10 +60,7 @@ class FertilizerService:
         })
         self._crop_rates = all_rates
 
-    # ------------------------------------------------------------------
     # NPK Classification
-    # ------------------------------------------------------------------
-
     @classmethod
     def classify_npk(
         cls, nitrogen: float, phosphorus: float, potassium: float
@@ -94,10 +91,7 @@ class FertilizerService:
             ]
         }
 
-    # ------------------------------------------------------------------
     # Per-crop fertilizer rate lookup
-    # ------------------------------------------------------------------
-
     def get_fertilizer_rate(
         self, npk_levels: Dict[str, str], crop: Optional[str] = None
     ) -> Dict[str, Any]:
@@ -201,10 +195,7 @@ class FertilizerService:
         ])
         return {"first_application": app, "second_application": app}
 
-    # ------------------------------------------------------------------
     # Mode of application
-    # ------------------------------------------------------------------
-
     def get_mode_of_application(self, crop: Optional[str] = None) -> Dict[str, str]:
         """Return crop-specific or default mode-of-application instructions."""
         if crop:
@@ -217,10 +208,7 @@ class FertilizerService:
                 return mode
         return self._DEFAULT_MODE
 
-    # ------------------------------------------------------------------
     # Helpers
-    # ------------------------------------------------------------------
-
     @staticmethod
     def _round_quarter(x: float) -> float:
         """Round to the nearest 0.25."""

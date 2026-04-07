@@ -58,7 +58,7 @@ class CropService:
             self._label_encoder.inverse_transform([raw_prediction])[0]
         )
 
-        # --- probabilities ---
+        # probabilities
         all_probs: List[Dict[str, Any]] = []
         top_3: List[Dict[str, Any]] = []
 
