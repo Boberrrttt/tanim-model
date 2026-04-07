@@ -1,0 +1,137 @@
+{
+    "Ampalaya": {
+        "nitrogen":   {"Low": 90,  "Medium": 50,  "High": 40},
+        "phosphorus": {"Low": 80,  "Medium": 50,  "High": 20},
+        "potassium":  {"Low": 60,  "Medium": 45,  "High": 30}
+    },
+    "Beans (String Beans)": {
+        "nitrogen":   {"Low": 50,  "Medium": 40,  "High": 35},
+        "phosphorus": {"Low": 90,  "Medium": 45,  "High": 20},
+        "potassium":  {"Low": 50,  "Medium": 40,  "High": 30}
+    },
+    "Beans (Soybean)": {
+        "nitrogen":   {"Low": 30,  "Medium": 25,  "High": 20},
+        "phosphorus": {"Low": 40,  "Medium": 25,  "High": 10},
+        "potassium":  {"Low": 40,  "Medium": 30,  "High": 20}
+    },
+    "Sitao": {
+        "nitrogen":   {"Low": 50,  "Medium": 40,  "High": 35},
+        "phosphorus": {"Low": 90,  "Medium": 45,  "High": 20},
+        "potassium":  {"Low": 50,  "Medium": 40,  "High": 30}
+    },
+    "Broccoli": {
+        "nitrogen":   {"Low": 60,  "Medium": 50,  "High": 40},
+        "phosphorus": {"Low": 60,  "Medium": 35,  "High": 20},
+        "potassium":  {"Low": 60,  "Medium": 45,  "High": 30}
+    },
+    "Cabbage": {
+        "nitrogen":   {"Low": 150, "Medium": 140, "High": 120},
+        "phosphorus": {"Low": 60,  "Medium": 35,  "High": 20},
+        "potassium":  {"Low": 75,  "Medium": 60,  "High": 30}
+    },
+    "Cucumber": {
+        "nitrogen":   {"Low": 100, "Medium": 80,  "High": 60},
+        "phosphorus": {"Low": 100, "Medium": 60,  "High": 30},
+        "potassium":  {"Low": 60,  "Medium": 45,  "High": 30}
+    },
+    "Onion": {
+        "nitrogen":   {"Low": 90,  "Medium": 60,  "High": 30},
+        "phosphorus": {"Low": 80,  "Medium": 50,  "High": 20},
+        "potassium":  {"Low": 50,  "Medium": 30,  "High": 20}
+    },
+    "Potato": {
+        "nitrogen":   {"Low": 80,  "Medium": 70,  "High": 60},
+        "phosphorus": {"Low": 60,  "Medium": 35,  "High": 20},
+        "potassium":  {"Low": 90,  "Medium": 60,  "High": 30}
+    },
+    "Radish": {
+        "nitrogen":   {"Low": 90,  "Medium": 80,  "High": 70},
+        "phosphorus": {"Low": 90,  "Medium": 60,  "High": 30},
+        "potassium":  {"Low": 120, "Medium": 75,  "High": 30}
+    },
+    "Bell Pepper": {
+        "nitrogen":   {"Low": 120, "Medium": 90,  "High": 60},
+        "phosphorus": {"Low": 80,  "Medium": 50,  "High": 20},
+        "potassium":  {"Low": 150, "Medium": 120, "High": 60}
+    },
+    "Sweet Pepper": {
+        "nitrogen":   {"Low": 120, "Medium": 90,  "High": 60},
+        "phosphorus": {"Low": 80,  "Medium": 50,  "High": 20},
+        "potassium":  {"Low": 150, "Medium": 120, "High": 60}
+    },
+    "Chili Pepper": {
+        "nitrogen":   {"Low": 90,  "Medium": 80,  "High": 70},
+        "phosphorus": {"Low": 80,  "Medium": 50,  "High": 20},
+        "potassium":  {"Low": 150, "Medium": 75,  "High": 30}
+    },
+    "Eggplant": {
+        "nitrogen":   {"Low": 90,  "Medium": 80,  "High": 80},
+        "phosphorus": {"Low": 80,  "Medium": 50,  "High": 20},
+        "potassium":  {"Low": 90,  "Medium": 60,  "High": 30}
+    },
+    "Okra": {
+        "nitrogen":   {"Low": 120, "Medium": 100, "High": 70},
+        "phosphorus": {"Low": 80,  "Medium": 50,  "High": 20},
+        "potassium":  {"Low": 90,  "Medium": 60,  "High": 30}
+    },
+    "Tomato": {
+        "nitrogen":   {"Low": 90,  "Medium": 80,  "High": 70},
+        "phosphorus": {"Low": 120, "Medium": 75,  "High": 30},
+        "potassium":  {"Low": 90,  "Medium": 45,  "High": 30}
+    },
+    "Squash": {
+        "nitrogen":   {"Low": 90,  "Medium": 50,  "High": 40},
+        "phosphorus": {"Low": 80,  "Medium": 50,  "High": 30},
+        "potassium":  {"Low": 60,  "Medium": 45,  "High": 30}
+    },
+    "Corn": {
+        "nitrogen":   {"Low": 135, "Medium": 90,  "High": 60},
+        "phosphorus": {"Low": 90,  "Medium": 40,  "High": 20},
+        "potassium":  {"Low": 90,  "Medium": 45,  "High": 30}
+    },
+    "Adlai": {
+        "nitrogen":   {"Low": 90,  "Medium": 50,  "High": 20},
+        "phosphorus": {"Low": 60,  "Medium": 40,  "High": 20},
+        "potassium":  {"Low": 60,  "Medium": 45,  "High": 30}
+    },
+    "Sorghum": {
+        "nitrogen":   {"Low": 90,  "Medium": 50,  "High": 20},
+        "phosphorus": {"Low": 60,  "Medium": 40,  "High": 20},
+        "potassium":  {"Low": 60,  "Medium": 45,  "High": 30}
+    },
+    "Camote (Sweet Potato)": {
+        "nitrogen":   {"Low": 60,  "Medium": 50,  "High": 40},
+        "phosphorus": {"Low": 60,  "Medium": 35,  "High": 20},
+        "potassium":  {"Low": 90,  "Medium": 60,  "High": 30}
+    },
+    "Cassava": {
+        "nitrogen":   {"Low": 60,  "Medium": 50,  "High": 40},
+        "phosphorus": {"Low": 60,  "Medium": 35,  "High": 20},
+        "potassium":  {"Low": 90,  "Medium": 60,  "High": 30}
+    },
+    "Mongo (Mungbean)": {
+        "nitrogen":   {"Low": 50,  "Medium": 30,  "High": 30},
+        "phosphorus": {"Low": 50,  "Medium": 25,  "High": 0},
+        "potassium":  {"Low": 50,  "Medium": 40,  "High": 20}
+    },
+    "Peanut": {
+        "nitrogen":   {"Low": 40,  "Medium": 25,  "High": 20},
+        "phosphorus": {"Low": 40,  "Medium": 25,  "High": 10},
+        "potassium":  {"Low": 40,  "Medium": 30,  "High": 30}
+    },
+    "Sugarcane": {
+        "nitrogen":   {"Low": 150, "Medium": 100, "High": 75},
+        "phosphorus": {"Low": 60,  "Medium": 35,  "High": 20},
+        "potassium":  {"Low": 120, "Medium": 90,  "High": 60}
+    },
+    "Tobacco": {
+        "nitrogen":   {"Low": 60,  "Medium": 40,  "High": 20},
+        "phosphorus": {"Low": 40,  "Medium": 25,  "High": 10},
+        "potassium":  {"Low": 90,  "Medium": 60,  "High": 45}
+    },
+    "_default": {
+        "nitrogen":   {"Low": 90,  "Medium": 60,  "High": 30},
+        "phosphorus": {"Low": 60,  "Medium": 35,  "High": 20},
+        "potassium":  {"Low": 60,  "Medium": 45,  "High": 30}
+    }
+}
