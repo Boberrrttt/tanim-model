@@ -45,11 +45,7 @@ class CropService:
             ]
         )
 
-        input_data = (
-            self._scaler.transform(soil_sample)
-            if self._scaler is not None
-            else soil_sample
-        )
+        input_data = soil_sample
 
         out = np.asarray(self._model.predict(input_data))
         crops = self._label_encoder.classes_
