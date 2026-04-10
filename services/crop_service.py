@@ -13,7 +13,7 @@ warnings.filterwarnings("ignore", category=UserWarning, module="sklearn")
 class CropService:
     """Handles crop recommendation via the LightGBM model."""
 
-    def __init__(self, model_dir: str = "model_artifacts"):
+    def __init__(self, model_dir: str = "final_model_artifacts"):
         self._model = joblib.load(os.path.join(model_dir, "lgbm_crop_model.pkl"))
         self._label_encoder = joblib.load(os.path.join(model_dir, "label_encoder.pkl"))
 
