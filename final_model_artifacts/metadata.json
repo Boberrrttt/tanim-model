@@ -1,0 +1,30 @@
+{
+    "model_type": "LightGBM Classifier",
+    "features": [
+        "OM_Percent",
+        "P_ppm",
+        "K_ppm",
+        "pH"
+    ],
+    "classes": [
+        "Ampalaya",
+        "Beans (Soybean)",
+        "Camote (Sweet Potato)",
+        "Cassava",
+        "Corn",
+        "Eggplant",
+        "Mongo (Mungbean)",
+        "Okra",
+        "Potato",
+        "Sorghum",
+        "Squash",
+        "Sugarcane",
+        "Tobacco",
+        "Tomato"
+    ],
+    "metrics": {
+        "accuracy": 0.8546132339235788,
+        "balanced_accuracy": 0.8546448882583337,
+        "f1_score": 0.8547502008961452
+    }
+}
