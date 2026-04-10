@@ -8,7 +8,7 @@ class PredictRequest(BaseModel):
 
     features: List[float] = Field(
         ...,
-        description="Sensor vector; first four used as OM_pct, P_ppm, K_ppm, Soil_pH for the crop model. Extra values map to temperature, moisture, EC for cached fertilizer_inputs.",
+        description="Sensor vector; first four used as OM_Percent, P_ppm, K_ppm, pH for the crop model (matches training feature names). Extra values map to temperature, moisture, EC for cached fertilizer_inputs.",
     )
     farm_id: Optional[str] = Field(
         default=None,
