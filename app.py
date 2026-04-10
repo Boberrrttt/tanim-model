@@ -121,9 +121,10 @@ def predict(request: PredictRequest):
         result = crop_service.predict(features)
 
         npk_levels = FertilizerService.classify_npk(
-            nitrogen=features[0],
-            phosphorus=features[1],
-            potassium=features[2],
+            OM_Percent=features[0],
+            P_ppm=features[1],
+            K_ppm=features[2],
+            pH=features[3],
         )
 
         predict_data = {
