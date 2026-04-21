@@ -4,27 +4,27 @@
         "OM_Percent",
         "P_ppm",
         "K_ppm",
-        "pH"
+        "pH",
+        "P_K_ratio",
+        "OM_pH_interaction",
+        "K_pH_interaction",
+        "P_OM_ratio"
     ],
     "classes": [
         "Ampalaya",
         "Beans (Soybean)",
-        "Camote (Sweet Potato)",
         "Cassava",
         "Corn",
         "Eggplant",
-        "Mongo (Mungbean)",
-        "Okra",
-        "Potato",
         "Sorghum",
         "Squash",
-        "Sugarcane",
+        "Sweet Pepper",
         "Tobacco",
         "Tomato"
     ],
     "metrics": {
-        "accuracy": 0.8546132339235788,
-        "balanced_accuracy": 0.8546448882583337,
-        "f1_score": 0.8547502008961452
+        "accuracy": 0.8229082047116165,
+        "balanced_accuracy": 0.822955394418809,
+        "f1_score": 0.8220498131563748
     }
 }

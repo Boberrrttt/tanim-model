@@ -124,12 +124,17 @@ def predict(request: PredictRequest):
             nitrogen=features[0],
             phosphorus=features[1],
             potassium=features[2],
+            ph=features[3],
         )
+
+        # Annotate top-3 predictions with pH suitability (BSWM Table 2)
+        soil_ph = features[3]
+        top_3_annotated = crop_service.annotate_ph_suitability(result["top_3"], soil_ph)
 
         predict_data = {
             "prediction": result["prediction"],
             "npk_levels": npk_levels,
-            "probabilities": result["top_3"],
+            "probabilities": top_3_annotated,
         }
         predict_response = {
             "status": "success",
@@ -190,6 +195,7 @@ def fertilizer(request: FertilizerPredictRequest):
             nitrogen=request.nitrogen,
             phosphorus=request.phosphorus,
             potassium=request.potassium,
+            ph=request.ph,
         )
 
         # 2. Look up per-crop fertilizer rates (kg/ha)
@@ -197,7 +203,7 @@ def fertilizer(request: FertilizerPredictRequest):
 
         # 3. Calculate commercial fertilizer bags
         application = fertilizer_service.calculate_application(
-            rate["n"], rate["p"], rate["k"]
+            rate["n"], rate["p"], rate["k"], crop=request.crop
         )
 
         # 4. Get mode-of-application instructions

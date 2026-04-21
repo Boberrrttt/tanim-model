@@ -1,0 +1,70 @@
+{
+    "_source": "BSWM Table 2 – Soil pH Preferences of Various Crops",
+    "_categories": {
+        "Acid Loving Crops": "pH 4.5 – 6.5 / 7.0",
+        "Moderately Acid Loving Crops": "pH 5.0 – 7.0",
+        "Slightly Acid Loving Crops": "pH 5.5 – 8.0"
+    },
+    "crops": {
+        "Ampalaya": {
+            "ph_min": 5.5,
+            "ph_max": 7.0,
+            "category": "Moderately Acid Loving",
+            "group": "Other Vegetables"
+        },
+        "Beans (Soybean)": {
+            "ph_min": 5.0,
+            "ph_max": 6.5,
+            "category": "Moderately Acid Loving",
+            "group": "Legumes"
+        },
+        "Cassava": {
+            "ph_min": 4.5,
+            "ph_max": 7.0,
+            "category": "Acid Loving",
+            "group": "Root Crops"
+        },
+        "Corn": {
+            "ph_min": 5.5,
+            "ph_max": 7.0,
+            "category": "Moderately Acid Loving",
+            "group": "Corn"
+        },
+        "Eggplant": {
+            "ph_min": 5.5,
+            "ph_max": 7.0,
+            "category": "Moderately Acid Loving",
+            "group": "Other Vegetables"
+        },
+        "Sorghum": {
+            "ph_min": 5.5,
+            "ph_max": 7.0,
+            "category": "Moderately Acid Loving",
+            "group": "Other Crops"
+        },
+        "Squash": {
+            "ph_min": 5.5,
+            "ph_max": 7.0,
+            "category": "Moderately Acid Loving",
+            "group": "Other Vegetables"
+        },
+        "Sweet Pepper": {
+            "ph_min": 5.5,
+            "ph_max": 7.0,
+            "category": "Moderately Acid Loving",
+            "group": "Other Vegetables"
+        },
+        "Tobacco": {
+            "ph_min": 5.5,
+            "ph_max": 7.0,
+            "category": "Moderately Acid Loving",
+            "group": "Tobacco"
+        },
+        "Tomato": {
+            "ph_min": 4.5,
+            "ph_max": 6.5,
+            "category": "Acid Loving",
+            "group": "Acid Loving Crops"
+        }
+    }
+}

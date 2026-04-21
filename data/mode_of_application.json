@@ -1,0 +1,84 @@
+{
+    "_split_rules": {
+        "(N+P+K)/2":                           [[0.5, 0.5, 0.5], [0.5, 0.5, 0.5]],
+        "Once":                                [[1.0, 1.0, 1.0]],
+        "1/2 N + (P+K) | 1/2 N":              [[0.5, 1.0, 1.0], [0.5, 0.0, 0.0]],
+        "1/2 N + (P+K) | 1/4 N | 1/4 N":      [[0.5, 1.0, 1.0], [0.25, 0.0, 0.0], [0.25, 0.0, 0.0]],
+        "N + (P+K) | 1/2 N (repeat)":          [[1.0, 1.0, 1.0], [0.5, 0.0, 0.0]],
+        "2/3 N + P + 1/2 K | 1/3 N + 1/2 K":  [[0.6667, 1.0, 0.5], [0.3333, 0.0, 0.5]]
+    },
+
+    "_default_split": [[0.5, 1.0, 1.0], [0.5, 0.0, 0.0]],
+
+    "_default_mode": {
+        "split_formula": "1/2 N + (P+K) | 1/2 N",
+        "first_application": "Apply phosphorus and potassium fertilizers including \u00bd of nitrogen at planting.",
+        "second_application": "Sidedress with remaining nitrogen fertilizer at the appropriate growth stage.",
+        "organic_fertilizer": "Apply 14 days to 1 month before planting."
+    },
+
+    "crops": {
+        "Ampalaya": {
+            "split_formula": "(N+P+K)/2",
+            "first_application": "Mix the fertilizer with the soil at planting time.",
+            "second_application": "Sidedress the fertilizer when the first set of fruit begin to form.",
+            "organic_fertilizer": "Apply 14 days to 1 month before planting."
+        },
+        "Beans (Soybean)": {
+            "split_formula": "Once",
+            "first_application": "Apply the fertilizer in bands 5.0-7.5 cm to the side and 2.5-5 cm below the level of the seeds, or apply the fertilizer as soon as the vines reach a height of one (1) meter.",
+            "organic_fertilizer": "Apply 14 days to 1 month before planting."
+        },
+        "Cassava": {
+            "split_formula": "1/2 N + (P+K) | 1/2 N",
+            "first_application": "Apply \u00bd of nitrogen with all phosphorus and potassium fertilizers in the furrow during planting.",
+            "second_application": "Sidedress the remaining \u00bd nitrogen fertilizer 2-3 months after planting during hilling up.",
+            "organic_fertilizer": "Apply 14 days to 1 month before planting."
+        },
+        "Corn": {
+            "split_formula": "1/2 N + (P+K) | 1/2 N",
+            "first_application": "Apply \u00bd of nitrogen with all phosphorus and potassium fertilizers in a band 5.0 cm to the side and 5.0 cm below the seed at planting.",
+            "second_application": "Sidedress the remaining \u00bd nitrogen fertilizer when the plants are about four (4) weeks old or about knee high.",
+            "organic_fertilizer": "Apply 14 days to 1 month before planting."
+        },
+        "Eggplant": {
+            "split_formula": "1/2 N + (P+K) | 1/4 N | 1/4 N",
+            "first_application": "Apply \u00bd of nitrogen with all phosphorus and potassium fertilizers in the furrow at transplanting.",
+            "second_application": "Topdress \u00bc of nitrogen fertilizer one (1) month after transplanting.",
+            "third_application": "Repeat topdressing with the remaining \u00bc of nitrogen after the second harvest of marketable fruits.",
+            "organic_fertilizer": "Apply 14 days to 1 month before planting."
+        },
+        "Sorghum": {
+            "split_formula": "(N+P+K)/2",
+            "first_application": "Apply half of all fertilizers (N, P, K) in the furrow at planting.",
+            "second_application": "Apply the remaining half of all fertilizers a month after planting.",
+            "organic_fertilizer": "Apply 14 days to 1 month before planting."
+        },
+        "Squash": {
+            "split_formula": "1/2 N + (P+K) | 1/2 N",
+            "first_application": "Mix \u00bd of nitrogen with all phosphorus and potassium fertilizers with the soil at planting time.",
+            "second_application": "Sidedress the remaining \u00bd nitrogen fertilizer when fruits begin to form.",
+            "organic_fertilizer": "Apply 14 days to 1 month before planting."
+        },
+        "Tomato": {
+            "split_formula": "N + (P+K) | 1/2 N (repeat)",
+            "first_application": "Apply all nitrogen with phosphorus and potassium fertilizers 7.0 cm away from the base of the plant and 7.0 cm deeper than the root system before or at planting.",
+            "second_application": "Sidedress \u00bd of nitrogen fertilizer when the plants start to bloom or when there are small fruits developing. Repeat after every two weeks.",
+            "note": "Tomatoes are sensitive to too heavy application of N and may result in delayed ripening of fruits that are soft and split easily.",
+            "organic_fertilizer": "Apply 14 days to 1 month before planting."
+        },
+        "Tobacco": {
+            "split_formula": "1/2 N + (P+K) | 1/2 N",
+            "first_application": "Apply \u00bd of nitrogen with all phosphorus and potassium fertilizers 7 cm to the side and 5 cm below the plant at transplanting.",
+            "second_application": "Dissolve the remaining \u00bd nitrogen fertilizer in water and apply 7-10 days after transplanting.",
+            "note": "Avoid using fertilizer that contains chlorides.",
+            "organic_fertilizer": "Apply 14 days to 1 month before planting."
+        },
+        "Sweet Pepper": {
+            "split_formula": "2/3 N + P + 1/2 K | 1/3 N + 1/2 K",
+            "first_application": "Apply \u2154 of nitrogen with all phosphorus and \u00bd of potassium fertilizer during the last operation in the land preparation, preferably along the row.",
+            "second_application": "Sidedress the remaining \u2153 of nitrogen with the remaining \u00bd potassium fertilizer when the first set of fruits appear.",
+            "organic_fertilizer": "Apply 14 days to 1 month before planting."
+        }
+    }
+}
