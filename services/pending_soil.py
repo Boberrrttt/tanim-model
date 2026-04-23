@@ -17,8 +17,7 @@ from datetime import datetime, timezone
 from typing import Any, Dict, List, Optional
 
 _lock = threading.Lock()
-_store: Optional[Dict[str, Any]] = None
-_sequence = 0
+_snapshot: Optional[Dict[str, Any]] = None
 
 
 def _soil_scalars_from_features(features: List[float]) -> Dict[str, float]:
@@ -61,9 +60,8 @@ def upsert(
     predict_response: Optional[Dict[str, Any]] = None,
 ) -> Dict[str, Any]:
     """Store latest snapshot; returns the stored document."""
-    global _store, _sequence
+    global _snapshot
     with _lock:
-        _sequence += 1
         now = datetime.now(timezone.utc)
         model_block = crop_model or {
             "prediction": prediction,
@@ -72,7 +70,6 @@ def upsert(
         }
         doc: Dict[str, Any] = {
             "received_at": now.isoformat(),
-            "sequence": _sequence,
             "features": [float(x) for x in features],
             "prediction": prediction,
             "npk_levels": npk_levels,
@@ -88,22 +85,22 @@ def upsert(
             doc["request_payload"] = request_payload
         if predict_response is not None:
             doc["predict_response"] = predict_response
-        _store = doc
+        _snapshot = doc
         return doc.copy()
 
 
 def get_snapshot() -> Optional[Dict[str, Any]]:
     with _lock:
-        if _store is None:
+        if _snapshot is None:
             return None
-        return _store.copy()
+        return _snapshot.copy()
 
 
 def clear() -> bool:
     """Return True if something was cleared."""
-    global _store
+    global _snapshot
     with _lock:
-        if _store is None:
+        if _snapshot is None:
             return False
-        _store = None
+        _snapshot = None
         return True
